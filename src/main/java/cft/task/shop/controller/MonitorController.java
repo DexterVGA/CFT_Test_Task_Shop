@@ -1,7 +1,5 @@
 package cft.task.shop.controller;
 
-import cft.task.shop.model.HardDiskDrive;
-import cft.task.shop.model.Laptop;
 import cft.task.shop.model.Monitor;
 import cft.task.shop.service.MonitorService;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +22,8 @@ public class MonitorController {
 
     @PostMapping("/monitor/{monitorId}")
     public ResponseEntity<?> update(@PathVariable(name = "monitorId") int monitorId,
-                                    Monitor monitor) {
-        return ResponseEntity.ok(monitorService.update(monitorId, monitor));
+                                    Monitor monitor) throws Exception {
+        return ResponseEntity.ok(monitorService.update(monitor, monitorId));
     }
 
     @GetMapping("/monitors")
@@ -35,6 +33,6 @@ public class MonitorController {
 
     @GetMapping("/monitor/{monitorId}")
     public ResponseEntity<?> get(@PathVariable(name = "monitorId") int monitorId) {
-        return ResponseEntity.ok(monitorService.getMonitor());
+        return ResponseEntity.ok(monitorService.getMonitor(monitorId));
     }
 }

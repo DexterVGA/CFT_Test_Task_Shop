@@ -1,6 +1,5 @@
 package cft.task.shop.controller;
 
-import cft.task.shop.model.HardDiskDrive;
 import cft.task.shop.model.Laptop;
 import cft.task.shop.service.LaptopService;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +22,8 @@ public class LaptopController {
 
     @PostMapping("/laptop/{laptopId}")
     public ResponseEntity<?> update(@PathVariable(name = "laptopId") int laptopId,
-                                    Laptop laptop) {
-        return ResponseEntity.ok(laptopService.update(laptopId, laptop));
+                                    Laptop laptop) throws Exception {
+        return ResponseEntity.ok(laptopService.update(laptop, laptopId));
     }
 
     @GetMapping("/laptops")
@@ -34,6 +33,6 @@ public class LaptopController {
 
     @GetMapping("/laptop/{laptopId}")
     public ResponseEntity<?> get(@PathVariable(name = "laptopId") int laptopId) {
-        return ResponseEntity.ok(laptopService.getLaptop());
+        return ResponseEntity.ok(laptopService.getLaptop(laptopId));
     }
 }

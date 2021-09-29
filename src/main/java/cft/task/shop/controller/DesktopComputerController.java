@@ -23,13 +23,13 @@ public class DesktopComputerController {
     }
 
     @PostMapping("/desktop")
-    public ResponseEntity<?> create(@RequestBody DesktopComputer desktop) {
-        return ResponseEntity.ok(desktopComputerService.create(desktop));
+    public ResponseEntity<?> create(@RequestBody DesktopComputer desktopComputer) {
+        return ResponseEntity.ok(desktopComputerService.create(desktopComputer));
     }
 
     @PostMapping("/desktop/{desktopId}")
     public ResponseEntity<?> update(@PathVariable(name = "desktopId") int desktopId,
-                                    DesktopComputer desktopComputer) {
+                                    DesktopComputer desktopComputer) throws Exception {
         return ResponseEntity.ok(desktopComputerService.update(desktopComputer, desktopId));
     }
 
@@ -40,6 +40,6 @@ public class DesktopComputerController {
 
     @GetMapping("/desktop/{desktopId}")
     public ResponseEntity<?> get(@PathVariable(name = "desktopId") int desktopId) {
-        return ResponseEntity.ok(desktopComputerService.getDesktopComputer());
+        return ResponseEntity.ok(desktopComputerService.getDesktopComputer(desktopId));
     }
 }

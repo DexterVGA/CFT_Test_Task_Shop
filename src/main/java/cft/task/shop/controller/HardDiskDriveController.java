@@ -16,14 +16,14 @@ public class HardDiskDriveController {
     }
 
     @PostMapping("/disk")
-    public ResponseEntity<?> create(@RequestBody HardDiskDrive hdd) {
-        return ResponseEntity.ok(hardDiskDriveService.create(hdd));
+    public ResponseEntity<?> create(@RequestBody HardDiskDrive hardDisk) {
+        return ResponseEntity.ok(hardDiskDriveService.create(hardDisk));
     }
 
     @PostMapping("/disk/{diskId}")
     public ResponseEntity<?> update(@PathVariable(name = "diskId") int diskId,
-                                    HardDiskDrive disk) {
-        return ResponseEntity.ok(hardDiskDriveService.update(diskId, disk));
+                                    HardDiskDrive hardDisk) throws Exception {
+        return ResponseEntity.ok(hardDiskDriveService.update(hardDisk, diskId));
     }
 
     @GetMapping("/disks")
@@ -33,6 +33,6 @@ public class HardDiskDriveController {
 
     @GetMapping("/disk/{diskId}")
     public ResponseEntity<?> get(@PathVariable(name = "diskId") int diskId) {
-        return ResponseEntity.ok(hardDiskDriveService.getDesktopComputer());
+        return ResponseEntity.ok(hardDiskDriveService.getHardDiskDrive(diskId));
     }
 }

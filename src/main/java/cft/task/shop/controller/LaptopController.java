@@ -28,7 +28,7 @@ public class LaptopController {
     }
 
     @GetMapping("/laptops")
-    public List<HardDiskDrive> read() {
+    public List<Laptop> read() {
         return laptopService.getAllLaptops();
     }
 

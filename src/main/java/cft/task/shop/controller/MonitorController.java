@@ -20,9 +20,9 @@ public class MonitorController {
         return ResponseEntity.ok(monitorService.create(monitor));
     }
 
-    @PostMapping("/monitor/{monitorId}")
+    @PutMapping("/monitor/{monitorId}")
     public ResponseEntity<?> update(@PathVariable(name = "monitorId") int monitorId,
-                                    Monitor monitor) throws Exception {
+                                    @RequestBody Monitor monitor) throws Exception {
         return ResponseEntity.ok(monitorService.update(monitor, monitorId));
     }
 

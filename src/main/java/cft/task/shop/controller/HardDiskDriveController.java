@@ -20,9 +20,9 @@ public class HardDiskDriveController {
         return ResponseEntity.ok(hardDiskDriveService.create(hardDisk));
     }
 
-    @PostMapping("/disk/{diskId}")
+    @PutMapping("/disk/{diskId}")
     public ResponseEntity<?> update(@PathVariable(name = "diskId") int diskId,
-                                    HardDiskDrive hardDisk) throws Exception {
+                                    @RequestBody HardDiskDrive hardDisk) throws Exception {
         return ResponseEntity.ok(hardDiskDriveService.update(hardDisk, diskId));
     }
 

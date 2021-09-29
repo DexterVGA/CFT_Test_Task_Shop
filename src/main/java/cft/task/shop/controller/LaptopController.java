@@ -20,9 +20,9 @@ public class LaptopController {
         return ResponseEntity.ok(laptopService.create(laptop));
     }
 
-    @PostMapping("/laptop/{laptopId}")
+    @PutMapping("/laptop/{laptopId}")
     public ResponseEntity<?> update(@PathVariable(name = "laptopId") int laptopId,
-                                    Laptop laptop) throws Exception {
+                                    @RequestBody Laptop laptop) throws Exception {
         return ResponseEntity.ok(laptopService.update(laptop, laptopId));
     }
 

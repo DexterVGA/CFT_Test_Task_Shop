@@ -1,5 +1,8 @@
 package cft.task.shop.model;
 
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public abstract class Product {
 
     private int serialNumber;

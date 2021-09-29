@@ -7,13 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Добавить по 4 метода:
- * 1. Добавить товар.
- * 2. Обновить товар.
- * 3. Получить все товары.
- * 4. Получить товар по Id.
- */
 @RestController
 public class DesktopComputerController {
     private final DesktopComputerService desktopComputerService;
@@ -27,9 +20,9 @@ public class DesktopComputerController {
         return ResponseEntity.ok(desktopComputerService.create(desktopComputer));
     }
 
-    @PostMapping("/desktop/{desktopId}")
+    @PutMapping("/desktop/{desktopId}")
     public ResponseEntity<?> update(@PathVariable(name = "desktopId") int desktopId,
-                                    DesktopComputer desktopComputer) throws Exception {
+                                    @RequestBody DesktopComputer desktopComputer) throws Exception {
         return ResponseEntity.ok(desktopComputerService.update(desktopComputer, desktopId));
     }
 

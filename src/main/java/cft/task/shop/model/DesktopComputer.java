@@ -1,7 +1,6 @@
 package cft.task.shop.model;
 
 import javax.persistence.*;
-import java.util.*;
 
 @Entity(name = "desktopComputers")
 public class DesktopComputer extends Product {

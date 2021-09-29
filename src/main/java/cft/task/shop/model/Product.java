@@ -7,14 +7,14 @@ public abstract class Product {
     private int price;
     private int numberProductUnitsInStock;
 
-    public Product(int serialNumber, String producer, int price, int numberProductUnitsInStock) {
+    protected Product(int serialNumber, String producer, int price, int numberProductUnitsInStock) {
         this.serialNumber = serialNumber;
         this.producer = producer;
         this.price = price;
         this.numberProductUnitsInStock = numberProductUnitsInStock;
     }
 
-    public Product() {
+    protected Product() {
 
     }
 

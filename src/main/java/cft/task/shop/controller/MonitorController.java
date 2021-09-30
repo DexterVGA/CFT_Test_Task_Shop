@@ -1,5 +1,7 @@
 package cft.task.shop.controller;
 
+import cft.task.shop.error.ErrorHandler;
+import cft.task.shop.error.ValidationResult;
 import cft.task.shop.model.Monitor;
 import cft.task.shop.service.MonitorService;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +19,30 @@ public class MonitorController {
 
     @PostMapping("/monitor")
     public ResponseEntity<?> create(@RequestBody Monitor monitor) {
+        ValidationResult returnedRequestStatus = ErrorHandler.validateMonitor(monitor);
+        if (returnedRequestStatus != ValidationResult.NO_ERROR) {
+            return ResponseEntity.internalServerError().body(returnedRequestStatus);
+        }
         return ResponseEntity.ok(monitorService.create(monitor));
     }
 
     @PutMapping("/monitor/{monitorId}")
     public ResponseEntity<?> update(@PathVariable(name = "monitorId") int monitorId,
-                                    @RequestBody Monitor monitor) throws Exception {
-        return ResponseEntity.ok(monitorService.update(monitor, monitorId));
+                                    @RequestBody Monitor monitor) {
+        ResponseEntity<?> response;
+        ValidationResult returnedRequestStatus = ErrorHandler.validateMonitor(monitor);
+        if (returnedRequestStatus == ValidationResult.NO_ERROR) {
+            Monitor returnedMonitor;
+            try {
+                returnedMonitor = monitorService.update(monitor, monitorId);
+                response = ResponseEntity.ok(returnedMonitor);
+            } catch (Exception e) {
+                response = ResponseEntity.internalServerError().body(ValidationResult.MONITOR_NOT_FOUND);
+            }
+        } else {
+            response = ResponseEntity.internalServerError().body(returnedRequestStatus);
+        }
+        return response;
     }
 
     @GetMapping("/monitors")
@@ -33,6 +52,12 @@ public class MonitorController {
 
     @GetMapping("/monitor/{monitorId}")
     public ResponseEntity<?> get(@PathVariable(name = "monitorId") int monitorId) {
-        return ResponseEntity.ok(monitorService.getMonitor(monitorId));
+        Monitor returnedMonitor;
+        try {
+            returnedMonitor = monitorService.getMonitor(monitorId);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(ValidationResult.MONITOR_NOT_FOUND);
+        }
+        return ResponseEntity.ok(returnedMonitor);
     }
 }

@@ -38,8 +38,8 @@ public class ErrorHandler {
         if (validatePersonStatus == ValidationResult.NO_ERROR) {
             if (desktopComputer.getFormFactor() == null) {
                 return ValidationResult.FORM_FACTOR_IS_EMPTY;
-            } else if (!desktopComputer.getFormFactor().equals("десктоп") ||
-                    !desktopComputer.getFormFactor().equals("неттоп") ||
+            } else if (!desktopComputer.getFormFactor().equals("десктоп") &&
+                    !desktopComputer.getFormFactor().equals("неттоп") &&
                     !desktopComputer.getFormFactor().equals("моноблок")) {
                 return ValidationResult.FORM_FACTOR_IS_WRONG;
             }
@@ -80,8 +80,8 @@ public class ErrorHandler {
         if (validatePersonStatus == ValidationResult.NO_ERROR) {
             if (laptop.getSizeInInches() == 0) {
                 return ValidationResult.LAPTOP_SIZE_IS_EMPTY;
-            } else if (laptop.getSizeInInches() != 13 || laptop.getSizeInInches() != 14 ||
-                    laptop.getSizeInInches() != 15 || laptop.getSizeInInches() != 17) {
+            } else if (laptop.getSizeInInches() != 13 && laptop.getSizeInInches() != 14 &&
+                    laptop.getSizeInInches() != 15 && laptop.getSizeInInches() != 17) {
                 return ValidationResult.LAPTOP_SIZE_IS_WRONG;
             }
         } else if (validatePersonStatus == ValidationResult.ALL_FIELDS_ARE_EMPTY) {

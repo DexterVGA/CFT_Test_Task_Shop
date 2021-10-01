@@ -54,7 +54,7 @@ public class LaptopServiceTest {
     }
 
     @Test
-    void updateFailedUserNotFound() {
+    void updateFailedLaptopNotFound() {
         Laptop passedLaptop = new Laptop(serialNumber, producer, price, numberProductUnitsInStock, null, sizeInInches);
         Mockito.when(laptopRepository.existsById(id)).thenReturn(false);
 
@@ -62,7 +62,7 @@ public class LaptopServiceTest {
     }
 
     @Test
-    void getAllDesktopComputersSuccessful() {
+    void getAllLaptopsSuccessful() {
         List<Laptop> expectedList = new ArrayList<>();
         expectedList.add(new Laptop(serialNumber, producer, price, numberProductUnitsInStock, 1, sizeInInches));
         expectedList.add(new Laptop(serialNumber + 1, producer, price + 1, numberProductUnitsInStock, 2, sizeInInches));

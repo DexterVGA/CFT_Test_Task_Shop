@@ -54,7 +54,7 @@ public class HardDiskDriveServiceTest {
     }
 
     @Test
-    void updateFailedUserNotFound() {
+    void updateFailedHardDiskDriveNotFound() {
         HardDiskDrive passedHardDisk = new HardDiskDrive(serialNumber, producer, price, numberProductUnitsInStock, null, memorySizeGB);
         Mockito.when(hardDiskDriveRepository.existsById(id)).thenReturn(false);
 
@@ -62,7 +62,7 @@ public class HardDiskDriveServiceTest {
     }
 
     @Test
-    void getAllDesktopComputersSuccessful() {
+    void getAllHardDiskDrivesSuccessful() {
         List<HardDiskDrive> expectedList = new ArrayList<>();
         expectedList.add(new HardDiskDrive(serialNumber, producer, price, numberProductUnitsInStock, 1, memorySizeGB));
         expectedList.add(new HardDiskDrive(serialNumber + 1, producer, price + 1, numberProductUnitsInStock, 2, memorySizeGB));

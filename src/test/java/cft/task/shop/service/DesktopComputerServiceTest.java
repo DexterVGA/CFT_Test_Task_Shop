@@ -21,7 +21,7 @@ public class DesktopComputerServiceTest {
     private DesktopComputerService desktopComputerService;
 
     @MockBean
-    DesktopComputerRepository desktopComputerRepository;
+    private DesktopComputerRepository desktopComputerRepository;
 
     private final int serialNumber = 290921;
     private final String producer = "Apple";
@@ -54,7 +54,7 @@ public class DesktopComputerServiceTest {
     }
 
     @Test
-    void updateFailedUserNotFound() {
+    void updateFailedDesktopComputerNotFound() {
         DesktopComputer passedComputer = new DesktopComputer(serialNumber, producer, price, numberProductUnitsInStock, null, formFactor);
         Mockito.when(desktopComputerRepository.existsById(id)).thenReturn(false);
 

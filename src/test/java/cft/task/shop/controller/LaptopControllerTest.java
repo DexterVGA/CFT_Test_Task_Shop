@@ -25,10 +25,10 @@ public class LaptopControllerTest {
     @MockBean
     LaptopService laptopService;
 
-    private final int serialNumber = 241254;
-    private final String producer = "Western Digital";
-    private final int price = 12;
-    private final int numberProductUnitsInStock = 2564;
+    private final int serialNumber = 33562;
+    private final String producer = "Asus";
+    private final int price = 40;
+    private final int numberProductUnitsInStock = 120;
     private final int id = 1;
     private final int sizeInInches = 15;
 

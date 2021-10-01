@@ -27,8 +27,12 @@ public class ErrorHandler {
             return ValidationResult.PRODUCER_IS_EMPTY;
         } else if (someProduct.getPrice() == 0) {
             return ValidationResult.PRICE_IS_EMPTY;
+        } else if (someProduct.getPrice() < 0) {
+            return ValidationResult.PRICE_LESS_THAN_ZERO;
         } else if (someProduct.getNumberProductUnitsInStock() == 0) {
             return ValidationResult.NUMBER_PRODUCT_UNITS_IN_STOCK_IS_EMPTY;
+        } else if (someProduct.getNumberProductUnitsInStock() < 0) {
+            return ValidationResult.NUMBER_PRODUCT_UNITS_IN_STOCK_LESS_THAN_ZERO;
         }
         return ValidationResult.NO_ERROR;
     }

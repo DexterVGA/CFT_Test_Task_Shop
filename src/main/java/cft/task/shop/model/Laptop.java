@@ -20,7 +20,6 @@ public class Laptop extends Product {
     }
 
     public Laptop() {
-
     }
 
     public Integer getId() {

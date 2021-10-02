@@ -20,10 +20,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LaptopControllerTest {
 
     @Autowired
-    LaptopController laptopController;
+    private LaptopController laptopController;
 
     @MockBean
-    LaptopService laptopService;
+    private LaptopService laptopService;
 
     private final int serialNumber = 33562;
     private final String producer = "Asus";

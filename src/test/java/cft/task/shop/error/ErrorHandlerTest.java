@@ -16,7 +16,6 @@ public class ErrorHandlerTest {
     private final String producer = "Apple";
     private final int price = 999;
     private final int numberProductUnitsInStock = 521;
-    private final int id = 1;
     private final String formFactor = "моноблок";
     private final int memorySizeGB = 1000;
     private final int diagonal = 27;

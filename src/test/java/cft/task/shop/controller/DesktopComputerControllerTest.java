@@ -20,10 +20,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class DesktopComputerControllerTest {
 
     @Autowired
-    DesktopComputerController desktopComputerController;
+    private DesktopComputerController desktopComputerController;
 
     @MockBean
-    DesktopComputerService desktopComputerService;
+    private DesktopComputerService desktopComputerService;
 
     private final int serialNumber = 290921;
     private final String producer = "Apple";

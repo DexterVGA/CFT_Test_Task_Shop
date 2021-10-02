@@ -20,10 +20,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MonitorControllerTest {
 
     @Autowired
-    MonitorController monitorController;
+    private MonitorController monitorController;
 
     @MockBean
-    MonitorService monitorService;
+    private MonitorService monitorService;
 
     private final int serialNumber = 5567;
     private final String producer = "Dell";

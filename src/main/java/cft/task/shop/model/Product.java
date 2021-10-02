@@ -18,7 +18,6 @@ public abstract class Product {
     }
 
     protected Product() {
-
     }
 
     public int getSerialNumber() {

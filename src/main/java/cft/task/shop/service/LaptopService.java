@@ -19,7 +19,7 @@ public class LaptopService {
     }
 
     public Laptop update(Laptop laptop, int laptopId) throws Exception {
-        if(laptopRepository.existsById(laptopId)) {
+        if (laptopRepository.existsById(laptopId)) {
             laptop.setId(laptopId);
             return laptopRepository.save(laptop);
         }

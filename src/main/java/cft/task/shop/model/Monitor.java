@@ -20,7 +20,6 @@ public class Monitor extends Product {
     }
 
     public Monitor() {
-
     }
 
     public Integer getId() {

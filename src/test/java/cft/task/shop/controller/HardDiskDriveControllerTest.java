@@ -20,10 +20,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HardDiskDriveControllerTest {
 
     @Autowired
-    HardDiskDriveController hardDiskDriveController;
+    private HardDiskDriveController hardDiskDriveController;
 
     @MockBean
-    HardDiskDriveService hardDiskDriveService;
+    private HardDiskDriveService hardDiskDriveService;
 
     private final int serialNumber = 241254;
     private final String producer = "Western Digital";

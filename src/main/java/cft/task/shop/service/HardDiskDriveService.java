@@ -1,6 +1,5 @@
 package cft.task.shop.service;
 
-import cft.task.shop.model.DesktopComputer;
 import cft.task.shop.model.HardDiskDrive;
 import cft.task.shop.repository.HardDiskDriveRepository;
 import org.springframework.stereotype.Service;
@@ -20,7 +19,7 @@ public class HardDiskDriveService {
     }
 
     public HardDiskDrive update(HardDiskDrive hardDisk, int diskId) throws Exception {
-        if(HardDiskDriveRepository.existsById(diskId)) {
+        if (HardDiskDriveRepository.existsById(diskId)) {
             hardDisk.setId(diskId);
             return HardDiskDriveRepository.save(hardDisk);
         }

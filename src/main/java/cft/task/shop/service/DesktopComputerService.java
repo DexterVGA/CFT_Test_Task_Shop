@@ -19,7 +19,7 @@ public class DesktopComputerService {
     }
 
     public DesktopComputer update(DesktopComputer desktopComputer, int desktopId) throws Exception {
-        if(desktopComputerRepository.existsById(desktopId)) {
+        if (desktopComputerRepository.existsById(desktopId)) {
             desktopComputer.setId(desktopId);
             return desktopComputerRepository.save(desktopComputer);
         }
@@ -33,6 +33,4 @@ public class DesktopComputerService {
     public DesktopComputer getDesktopComputer(int desktopId) {
         return desktopComputerRepository.findById(desktopId).orElseThrow();
     }
-
-
 }

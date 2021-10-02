@@ -19,7 +19,7 @@ public class MonitorService {
     }
 
     public Monitor update(Monitor monitor, int monitorId) throws Exception {
-        if(monitorRepository.existsById(monitorId)) {
+        if (monitorRepository.existsById(monitorId)) {
             monitor.setId(monitorId);
             return monitorRepository.save(monitor);
         }
